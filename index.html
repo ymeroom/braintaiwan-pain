@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BrainTaiwan Pain — 疼痛面面觀 &amp; Transformation in O 全紀錄互動講義網</title>
+<meta name="description" content="精神分析與身心醫學四年制理論課程全紀錄：曾明宗醫師主講「疼痛面面觀」、文獻案例解析、陳建佑醫師主講「Transformation in O」。收錄 171 張 1080p 高解析度投影片與 9,000 行逐字稿對齊互動講義。">
+<style>
+
+:root {
+  --primary: #1565c0;
+  --primary-dark: #0a192f;
+  --primary-gradient: linear-gradient(135deg, #0a192f 0%, #153e75 50%, #1e5ba8 100%);
+  --accent: #7c3aed;
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --border: #e2e8f0;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.8;
+  font-size: 15px;
+}
+header {
+  background: var(--primary-gradient);
+  color: #fff;
+  padding: 20px 24px;
+  box-shadow: 0 4px 20px rgba(10, 25, 47, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-wrap {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #fff;
+}
+.brand-logo {
+  font-size: 26px;
+}
+.brand-text h1 {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.brand-text .sub {
+  font-size: 12px;
+  opacity: 0.8;
+}
+.nav-links {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.nav-btn {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: all 0.2s;
+}
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: #fff;
+}
+.nav-btn.active {
+  background: #fff;
+  color: #0a192f;
+  font-weight: 700;
+}
+
+/* Lightbox */
+.lightbox-modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(8, 15, 28, 0.95);
+  z-index: 9999;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(8px);
+}
+.lightbox-modal.active { display: flex; }
+.lightbox-controls {
+  position: absolute;
+  top: 16px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 8px 16px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  z-index: 10001;
+}
+.lb-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+.lb-btn:hover { background: #fff; color: #000; }
+.lb-btn.close-btn { background: #ef4444; border-color: #ef4444; }
+.lb-btn.close-btn:hover { background: #dc2626; color: #fff; }
+.lb-counter { color: #fff; font-size: 13px; font-weight: 600; margin: 0 6px; }
+.lightbox-img-wrapper {
+  max-width: 92vw;
+  max-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+.lightbox-img {
+  max-width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  transition: transform 0.2s ease-out;
+}
+.lightbox-caption {
+  margin-top: 16px;
+  color: #e2e8f0;
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.ts-badge {
+  color: var(--primary);
+  background: #e2e8f0;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 12px;
+  font-weight: 600;
+  margin-right: 4px;
+}
+.slide-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+.tag-part1 { background: #e0f2fe; color: #0369a1; }
+.tag-part2 { background: #fef3c7; color: #92400e; }
+.tag-part3 { background: #f3e8ff; color: #6b21a8; }
+.slide-overlay-badge {
+  position: absolute;
+  bottom: 8px; right: 8px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+footer {
+  background: #0a192f;
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  padding: 32px 20px;
+  margin-top: 60px;
+  font-size: 13px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+footer a { color: rgba(255,255,255,0.8); text-decoration: none; }
+footer a:hover { color: #fff; text-decoration: underline; }
+
+
+.hero {
+  background: linear-gradient(135deg, #0a192f 0%, #153e75 60%, #1e5ba8 100%);
+  color: #fff;
+  padding: 60px 24px;
+  text-align: center;
+}
+.hero-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.hero-tag {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.35;
+  margin-bottom: 16px;
+}
+.hero p {
+  font-size: 16px;
+  opacity: 0.9;
+  max-width: 780px;
+  margin: 0 auto 30px;
+  line-height: 1.8;
+}
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  background: #2563eb;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+  transition: all 0.2s;
+}
+.btn-primary:hover { background: #1d4ed8; transform: translateY(-2px); }
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  transition: all 0.2s;
+}
+.btn-secondary:hover { background: rgba(255, 255, 255, 0.25); transform: translateY(-2px); }
+
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  margin-bottom: 50px;
+}
+.feature-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(21, 101, 192, 0.1);
+  border-color: #cbd5e1;
+}
+.card-badge {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.feature-card h3 {
+  font-size: 20px;
+  color: #0a192f;
+  margin-bottom: 10px;
+}
+.feature-card p {
+  font-size: 14.5px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 14px;
+}
+.card-link:hover { text-decoration: underline; }
+
+.modules-section {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px 40px;
+  margin-bottom: 50px;
+}
+.modules-section h2 {
+  font-size: 24px;
+  color: #0a192f;
+  margin-bottom: 20px;
+  border-left: 4px solid var(--primary);
+  padding-left: 12px;
+}
+.module-item {
+  border-bottom: 1px solid #f1f5f9;
+  padding: 20px 0;
+}
+.module-item:last-child { border-bottom: none; }
+.module-item h4 {
+  font-size: 17px;
+  color: #1e293b;
+  margin-bottom: 6px;
+}
+.module-item p {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.gallery-preview {
+  margin-top: 40px;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+.thumb-item {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  background: #000;
+  aspect-ratio: 16/9;
+}
+.thumb-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s;
+}
+.thumb-item:hover img { transform: scale(1.05); }
+.thumb-num {
+  position: absolute;
+  bottom: 4px; left: 4px;
+  background: rgba(0,0,0,0.75);
+  color: #fff;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-wrap">
+    <a href="index.html" class="brand">
+      <span class="brand-logo">🧠</span>
+      <div class="brand-text">
+        <h1>BrainTaiwan Pain</h1>
+        <div class="sub">疼痛神經科學與精神分析理論課程全紀錄</div>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="split.html" class="nav-btn">🖥️ 講義版 (左右分割)</a>
+      <a href="article.html" class="nav-btn">📱 圖文版 (上下排列)</a>
+      <a href="series.html" class="nav-btn">📚 五部曲專題文章</a>
+      <a href="https://md.braintaiwan.com" class="nav-btn" target="_blank">BrainTaiwan MD ➔</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-tag">四年制理論課程 · 全長 4 小時 15 分鐘完整轉化</span>
+    <h1>從大腦疼痛網絡到精神分析的終極真實<br>疼痛面面觀 &amp; Transformation in O</h1>
+    <p>匯聚曾明宗醫師（神經科學與疼痛矩陣）與陳建佑醫師（神經精神分析與比昂理論）的跨界高峰對話。完整收錄 171 張 Full HD 投影片快照、9,000+ 行毫秒級時間戳記逐字稿與五篇深度導讀專題。</p>
+    <div class="hero-actions">
+      <a href="split.html" class="btn-primary">進入【左右分割講義模式】</a>
+      <a href="article.html" class="btn-secondary">進入【上下圖文文章模式】</a>
+      <a href="series.html" class="btn-secondary">閱讀【五部曲深度專題】</a>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div>
+        <div class="card-badge">模式 ① · 研讀講義</div>
+        <h3>🖥️ 講義版（左右分割）</h3>
+        <p>左側固定高清 1080p 投影片，右側對應時間戳記逐字稿。支援即時全文搜尋與章節跳轉，點擊投影片即刻進入全螢幕無損 Lightbox 放大。</p>
+      </div>
+      <a href="split.html" class="card-link">開啟左右講義模式 ➔</a>
+    </div>
+
+    <div class="feature-card">
+      <div>
+        <div class="card-badge">模式 ② · 流暢閱讀</div>
+        <h3>📱 圖文文章版（上下排列）</h3>
+        <p>上方全寬投影片，下方緊隨逐字稿與解析。極致優雅的單欄排版，完美適配平板、手機閱讀與列印輸出 PDF 實體教材。</p>
+      </div>
+      <a href="article.html" class="card-link">開啟上下圖文模式 ➔</a>
+    </div>
+
+    <div class="feature-card">
+      <div>
+        <div class="card-badge">模式 ③ · 觀念淬鍊</div>
+        <h3>📚 五部曲深度研讀專題</h3>
+        <p>將 4.5 小時龐大理論提煉為 5 篇結構精闢的醫學導讀專文：神經網絡、同理與慈悲、記憶重固化、比昂的 O 與臨床先活下來的智慧。</p>
+      </div>
+      <a href="series.html" class="card-link">閱讀深度專題五部曲 ➔</a>
+    </div>
+  </div>
+
+  <div class="modules-section">
+    <h2>課程三大核心模組</h2>
+    <div class="module-item">
+      <h4>📌 第一模組：疼痛面面觀（曾明宗 醫師 主講 · 00:00 - 01:15）</h4>
+      <p>痛覺歷史演進、IASP 現代定義（實際 vs. 潛在組織損傷）、大腦疼痛矩陣（ACC/Insula/dmPFC）、社會排擠（Social Pain）神經重疊、同理心（Empathy）與慈悲（Compassion）神經分流、信念與災難化思考調控、疼痛記憶與幻肢痛。</p>
+    </div>
+    <div class="module-item">
+      <h4>📌 第二模組：文獻案例解析與神經精神分析（01:15 - 02:45）</h4>
+      <p>痛與癢的神經生物學對比、Mark Solms 與 Karl Friston 自由能預測模型、感受先於認知（Affect precedes Cognition）、早年創傷的自動化迴路、打開工作記憶與預測誤差（Reconsolidation）、行動演出（Enactment）如何具象化內隱體感。</p>
+    </div>
+    <div class="module-item">
+      <h4>📌 第三模組：技術思索——Transformation in O（陳建佑 醫師 主講 · 02:45 - 04:15）</h4>
+      <p>康德「物自身（Ding an sich）」對精神分析的啟發、比昂的終極真實 $O$、$K$（知識）與 $O$（存在）的對立、飽和詮釋背後對未知的防衛、無記憶與無慾望（Negative Capability）、耐性（Patience）中浮現 Selected Fact、新進治療師「先活下來」的實務智慧。</p>
+    </div>
+  </div>
+
+  <div class="gallery-preview">
+    <div style="display:flex; justify-content:space-between; align-items:baseline;">
+      <h3 style="font-size:20px; color:#0a192f;">🖼️ 全場 171 張 1080p 投影片快速檢視</h3>
+      <span style="font-size:13px; color:#64748b;">點選任何縮圖即可全螢幕放大瀏覽</span>
+    </div>
+    <div class="gallery-grid">
+      <div class="thumb-item" onclick="openLightbox(1)" title="Slide #001 [00:00:00]"><img src="slides/slide_001.jpg" loading="lazy" alt="Slide 1"><span class="thumb-num">#001</span></div><div class="thumb-item" onclick="openLightbox(2)" title="Slide #002 [00:00:16]"><img src="slides/slide_002.jpg" loading="lazy" alt="Slide 2"><span class="thumb-num">#002</span></div><div class="thumb-item" onclick="openLightbox(3)" title="Slide #003 [00:00:36]"><img src="slides/slide_003.jpg" loading="lazy" alt="Slide 3"><span class="thumb-num">#003</span></div><div class="thumb-item" onclick="openLightbox(4)" title="Slide #004 [00:00:56]"><img src="slides/slide_004.jpg" loading="lazy" alt="Slide 4"><span class="thumb-num">#004</span></div><div class="thumb-item" onclick="openLightbox(5)" title="Slide #005 [00:01:12]"><img src="slides/slide_005.jpg" loading="lazy" alt="Slide 5"><span class="thumb-num">#005</span></div><div class="thumb-item" onclick="openLightbox(6)" title="Slide #006 [00:03:20]"><img src="slides/slide_006.jpg" loading="lazy" alt="Slide 6"><span class="thumb-num">#006</span></div><div class="thumb-item" onclick="openLightbox(7)" title="Slide #007 [00:04:40]"><img src="slides/slide_007.jpg" loading="lazy" alt="Slide 7"><span class="thumb-num">#007</span></div><div class="thumb-item" onclick="openLightbox(8)" title="Slide #008 [00:06:20]"><img src="slides/slide_008.jpg" loading="lazy" alt="Slide 8"><span class="thumb-num">#008</span></div><div class="thumb-item" onclick="openLightbox(9)" title="Slide #009 [00:06:56]"><img src="slides/slide_009.jpg" loading="lazy" alt="Slide 9"><span class="thumb-num">#009</span></div><div class="thumb-item" onclick="openLightbox(10)" title="Slide #010 [00:07:28]"><img src="slides/slide_010.jpg" loading="lazy" alt="Slide 10"><span class="thumb-num">#010</span></div><div class="thumb-item" onclick="openLightbox(11)" title="Slide #011 [00:08:16]"><img src="slides/slide_011.jpg" loading="lazy" alt="Slide 11"><span class="thumb-num">#011</span></div><div class="thumb-item" onclick="openLightbox(12)" title="Slide #012 [00:09:32]"><img src="slides/slide_012.jpg" loading="lazy" alt="Slide 12"><span class="thumb-num">#012</span></div><div class="thumb-item" onclick="openLightbox(13)" title="Slide #013 [00:11:52]"><img src="slides/slide_013.jpg" loading="lazy" alt="Slide 13"><span class="thumb-num">#013</span></div><div class="thumb-item" onclick="openLightbox(14)" title="Slide #014 [00:14:20]"><img src="slides/slide_014.jpg" loading="lazy" alt="Slide 14"><span class="thumb-num">#014</span></div><div class="thumb-item" onclick="openLightbox(15)" title="Slide #015 [00:16:08]"><img src="slides/slide_015.jpg" loading="lazy" alt="Slide 15"><span class="thumb-num">#015</span></div><div class="thumb-item" onclick="openLightbox(16)" title="Slide #016 [00:17:16]"><img src="slides/slide_016.jpg" loading="lazy" alt="Slide 16"><span class="thumb-num">#016</span></div><div class="thumb-item" onclick="openLightbox(17)" title="Slide #017 [00:17:48]"><img src="slides/slide_017.jpg" loading="lazy" alt="Slide 17"><span class="thumb-num">#017</span></div><div class="thumb-item" onclick="openLightbox(18)" title="Slide #018 [00:18:28]"><img src="slides/slide_018.jpg" loading="lazy" alt="Slide 18"><span class="thumb-num">#018</span></div><div class="thumb-item" onclick="openLightbox(19)" title="Slide #019 [00:25:28]"><img src="slides/slide_019.jpg" loading="lazy" alt="Slide 19"><span class="thumb-num">#019</span></div><div class="thumb-item" onclick="openLightbox(20)" title="Slide #020 [00:26:32]"><img src="slides/slide_020.jpg" loading="lazy" alt="Slide 20"><span class="thumb-num">#020</span></div><div class="thumb-item" onclick="openLightbox(21)" title="Slide #021 [00:28:48]"><img src="slides/slide_021.jpg" loading="lazy" alt="Slide 21"><span class="thumb-num">#021</span></div><div class="thumb-item" onclick="openLightbox(22)" title="Slide #022 [00:29:16]"><img src="slides/slide_022.jpg" loading="lazy" alt="Slide 22"><span class="thumb-num">#022</span></div><div class="thumb-item" onclick="openLightbox(23)" title="Slide #023 [00:29:40]"><img src="slides/slide_023.jpg" loading="lazy" alt="Slide 23"><span class="thumb-num">#023</span></div><div class="thumb-item" onclick="openLightbox(24)" title="Slide #024 [00:29:52]"><img src="slides/slide_024.jpg" loading="lazy" alt="Slide 24"><span class="thumb-num">#024</span></div><div class="thumb-item" onclick="openLightbox(25)" title="Slide #025 [00:31:44]"><img src="slides/slide_025.jpg" loading="lazy" alt="Slide 25"><span class="thumb-num">#025</span></div><div class="thumb-item" onclick="openLightbox(26)" title="Slide #026 [00:32:52]"><img src="slides/slide_026.jpg" loading="lazy" alt="Slide 26"><span class="thumb-num">#026</span></div><div class="thumb-item" onclick="openLightbox(27)" title="Slide #027 [00:33:16]"><img src="slides/slide_027.jpg" loading="lazy" alt="Slide 27"><span class="thumb-num">#027</span></div><div class="thumb-item" onclick="openLightbox(28)" title="Slide #028 [00:38:28]"><img src="slides/slide_028.jpg" loading="lazy" alt="Slide 28"><span class="thumb-num">#028</span></div><div class="thumb-item" onclick="openLightbox(29)" title="Slide #029 [00:42:20]"><img src="slides/slide_029.jpg" loading="lazy" alt="Slide 29"><span class="thumb-num">#029</span></div><div class="thumb-item" onclick="openLightbox(30)" title="Slide #030 [00:45:48]"><img src="slides/slide_030.jpg" loading="lazy" alt="Slide 30"><span class="thumb-num">#030</span></div><div class="thumb-item" onclick="openLightbox(31)" title="Slide #031 [00:47:16]"><img src="slides/slide_031.jpg" loading="lazy" alt="Slide 31"><span class="thumb-num">#031</span></div><div class="thumb-item" onclick="openLightbox(32)" title="Slide #032 [00:47:44]"><img src="slides/slide_032.jpg" loading="lazy" alt="Slide 32"><span class="thumb-num">#032</span></div><div class="thumb-item" onclick="openLightbox(33)" title="Slide #033 [00:51:08]"><img src="slides/slide_033.jpg" loading="lazy" alt="Slide 33"><span class="thumb-num">#033</span></div><div class="thumb-item" onclick="openLightbox(34)" title="Slide #034 [00:51:56]"><img src="slides/slide_034.jpg" loading="lazy" alt="Slide 34"><span class="thumb-num">#034</span></div><div class="thumb-item" onclick="openLightbox(35)" title="Slide #035 [00:52:40]"><img src="slides/slide_035.jpg" loading="lazy" alt="Slide 35"><span class="thumb-num">#035</span></div><div class="thumb-item" onclick="openLightbox(36)" title="Slide #036 [00:53:40]"><img src="slides/slide_036.jpg" loading="lazy" alt="Slide 36"><span class="thumb-num">#036</span></div><div class="thumb-item" onclick="openLightbox(37)" title="Slide #037 [00:54:28]"><img src="slides/slide_037.jpg" loading="lazy" alt="Slide 37"><span class="thumb-num">#037</span></div><div class="thumb-item" onclick="openLightbox(38)" title="Slide #038 [00:55:16]"><img src="slides/slide_038.jpg" loading="lazy" alt="Slide 38"><span class="thumb-num">#038</span></div><div class="thumb-item" onclick="openLightbox(39)" title="Slide #039 [00:56:48]"><img src="slides/slide_039.jpg" loading="lazy" alt="Slide 39"><span class="thumb-num">#039</span></div><div class="thumb-item" onclick="openLightbox(40)" title="Slide #040 [00:57:56]"><img src="slides/slide_040.jpg" loading="lazy" alt="Slide 40"><span class="thumb-num">#040</span></div><div class="thumb-item" onclick="openLightbox(41)" title="Slide #041 [00:59:44]"><img src="slides/slide_041.jpg" loading="lazy" alt="Slide 41"><span class="thumb-num">#041</span></div><div class="thumb-item" onclick="openLightbox(42)" title="Slide #042 [01:01:16]"><img src="slides/slide_042.jpg" loading="lazy" alt="Slide 42"><span class="thumb-num">#042</span></div><div class="thumb-item" onclick="openLightbox(43)" title="Slide #043 [01:03:00]"><img src="slides/slide_043.jpg" loading="lazy" alt="Slide 43"><span class="thumb-num">#043</span></div><div class="thumb-item" onclick="openLightbox(44)" title="Slide #044 [01:03:08]"><img src="slides/slide_044.jpg" loading="lazy" alt="Slide 44"><span class="thumb-num">#044</span></div><div class="thumb-item" onclick="openLightbox(45)" title="Slide #045 [01:03:36]"><img src="slides/slide_045.jpg" loading="lazy" alt="Slide 45"><span class="thumb-num">#045</span></div><div class="thumb-item" onclick="openLightbox(46)" title="Slide #046 [01:03:48]"><img src="slides/slide_046.jpg" loading="lazy" alt="Slide 46"><span class="thumb-num">#046</span></div><div class="thumb-item" onclick="openLightbox(47)" title="Slide #047 [01:05:24]"><img src="slides/slide_047.jpg" loading="lazy" alt="Slide 47"><span class="thumb-num">#047</span></div><div class="thumb-item" onclick="openLightbox(48)" title="Slide #048 [01:05:40]"><img src="slides/slide_048.jpg" loading="lazy" alt="Slide 48"><span class="thumb-num">#048</span></div><div class="thumb-item" onclick="openLightbox(49)" title="Slide #049 [01:06:08]"><img src="slides/slide_049.jpg" loading="lazy" alt="Slide 49"><span class="thumb-num">#049</span></div><div class="thumb-item" onclick="openLightbox(50)" title="Slide #050 [01:06:52]"><img src="slides/slide_050.jpg" loading="lazy" alt="Slide 50"><span class="thumb-num">#050</span></div><div class="thumb-item" onclick="openLightbox(51)" title="Slide #051 [01:07:04]"><img src="slides/slide_051.jpg" loading="lazy" alt="Slide 51"><span class="thumb-num">#051</span></div><div class="thumb-item" onclick="openLightbox(52)" title="Slide #052 [01:07:48]"><img src="slides/slide_052.jpg" loading="lazy" alt="Slide 52"><span class="thumb-num">#052</span></div><div class="thumb-item" onclick="openLightbox(53)" title="Slide #053 [01:08:00]"><img src="slides/slide_053.jpg" loading="lazy" alt="Slide 53"><span class="thumb-num">#053</span></div><div class="thumb-item" onclick="openLightbox(54)" title="Slide #054 [01:08:56]"><img src="slides/slide_054.jpg" loading="lazy" alt="Slide 54"><span class="thumb-num">#054</span></div><div class="thumb-item" onclick="openLightbox(55)" title="Slide #055 [01:09:16]"><img src="slides/slide_055.jpg" loading="lazy" alt="Slide 55"><span class="thumb-num">#055</span></div><div class="thumb-item" onclick="openLightbox(56)" title="Slide #056 [01:09:36]"><img src="slides/slide_056.jpg" loading="lazy" alt="Slide 56"><span class="thumb-num">#056</span></div><div class="thumb-item" onclick="openLightbox(57)" title="Slide #057 [01:10:44]"><img src="slides/slide_057.jpg" loading="lazy" alt="Slide 57"><span class="thumb-num">#057</span></div><div class="thumb-item" onclick="openLightbox(58)" title="Slide #058 [01:11:04]"><img src="slides/slide_058.jpg" loading="lazy" alt="Slide 58"><span class="thumb-num">#058</span></div><div class="thumb-item" onclick="openLightbox(59)" title="Slide #059 [01:11:16]"><img src="slides/slide_059.jpg" loading="lazy" alt="Slide 59"><span class="thumb-num">#059</span></div><div class="thumb-item" onclick="openLightbox(60)" title="Slide #060 [01:11:28]"><img src="slides/slide_060.jpg" loading="lazy" alt="Slide 60"><span class="thumb-num">#060</span></div><div class="thumb-item" onclick="openLightbox(61)" title="Slide #061 [01:11:52]"><img src="slides/slide_061.jpg" loading="lazy" alt="Slide 61"><span class="thumb-num">#061</span></div><div class="thumb-item" onclick="openLightbox(62)" title="Slide #062 [01:15:40]"><img src="slides/slide_062.jpg" loading="lazy" alt="Slide 62"><span class="thumb-num">#062</span></div><div class="thumb-item" onclick="openLightbox(63)" title="Slide #063 [01:17:24]"><img src="slides/slide_063.jpg" loading="lazy" alt="Slide 63"><span class="thumb-num">#063</span></div><div class="thumb-item" onclick="openLightbox(64)" title="Slide #064 [01:17:36]"><img src="slides/slide_064.jpg" loading="lazy" alt="Slide 64"><span class="thumb-num">#064</span></div><div class="thumb-item" onclick="openLightbox(65)" title="Slide #065 [01:20:00]"><img src="slides/slide_065.jpg" loading="lazy" alt="Slide 65"><span class="thumb-num">#065</span></div><div class="thumb-item" onclick="openLightbox(66)" title="Slide #066 [01:21:12]"><img src="slides/slide_066.jpg" loading="lazy" alt="Slide 66"><span class="thumb-num">#066</span></div><div class="thumb-item" onclick="openLightbox(67)" title="Slide #067 [01:21:56]"><img src="slides/slide_067.jpg" loading="lazy" alt="Slide 67"><span class="thumb-num">#067</span></div><div class="thumb-item" onclick="openLightbox(68)" title="Slide #068 [01:22:16]"><img src="slides/slide_068.jpg" loading="lazy" alt="Slide 68"><span class="thumb-num">#068</span></div><div class="thumb-item" onclick="openLightbox(69)" title="Slide #069 [01:24:08]"><img src="slides/slide_069.jpg" loading="lazy" alt="Slide 69"><span class="thumb-num">#069</span></div><div class="thumb-item" onclick="openLightbox(70)" title="Slide #070 [01:26:44]"><img src="slides/slide_070.jpg" loading="lazy" alt="Slide 70"><span class="thumb-num">#070</span></div><div class="thumb-item" onclick="openLightbox(71)" title="Slide #071 [01:27:40]"><img src="slides/slide_071.jpg" loading="lazy" alt="Slide 71"><span class="thumb-num">#071</span></div><div class="thumb-item" onclick="openLightbox(72)" title="Slide #072 [01:29:28]"><img src="slides/slide_072.jpg" loading="lazy" alt="Slide 72"><span class="thumb-num">#072</span></div><div class="thumb-item" onclick="openLightbox(73)" title="Slide #073 [01:30:28]"><img src="slides/slide_073.jpg" loading="lazy" alt="Slide 73"><span class="thumb-num">#073</span></div><div class="thumb-item" onclick="openLightbox(74)" title="Slide #074 [01:30:40]"><img src="slides/slide_074.jpg" loading="lazy" alt="Slide 74"><span class="thumb-num">#074</span></div><div class="thumb-item" onclick="openLightbox(75)" title="Slide #075 [01:31:56]"><img src="slides/slide_075.jpg" loading="lazy" alt="Slide 75"><span class="thumb-num">#075</span></div><div class="thumb-item" onclick="openLightbox(76)" title="Slide #076 [01:32:44]"><img src="slides/slide_076.jpg" loading="lazy" alt="Slide 76"><span class="thumb-num">#076</span></div><div class="thumb-item" onclick="openLightbox(77)" title="Slide #077 [01:33:04]"><img src="slides/slide_077.jpg" loading="lazy" alt="Slide 77"><span class="thumb-num">#077</span></div><div class="thumb-item" onclick="openLightbox(78)" title="Slide #078 [01:33:36]"><img src="slides/slide_078.jpg" loading="lazy" alt="Slide 78"><span class="thumb-num">#078</span></div><div class="thumb-item" onclick="openLightbox(79)" title="Slide #079 [01:33:48]"><img src="slides/slide_079.jpg" loading="lazy" alt="Slide 79"><span class="thumb-num">#079</span></div><div class="thumb-item" onclick="openLightbox(80)" title="Slide #080 [01:34:44]"><img src="slides/slide_080.jpg" loading="lazy" alt="Slide 80"><span class="thumb-num">#080</span></div><div class="thumb-item" onclick="openLightbox(81)" title="Slide #081 [01:36:48]"><img src="slides/slide_081.jpg" loading="lazy" alt="Slide 81"><span class="thumb-num">#081</span></div><div class="thumb-item" onclick="openLightbox(82)" title="Slide #082 [01:37:00]"><img src="slides/slide_082.jpg" loading="lazy" alt="Slide 82"><span class="thumb-num">#082</span></div><div class="thumb-item" onclick="openLightbox(83)" title="Slide #083 [01:37:24]"><img src="slides/slide_083.jpg" loading="lazy" alt="Slide 83"><span class="thumb-num">#083</span></div><div class="thumb-item" onclick="openLightbox(84)" title="Slide #084 [01:37:48]"><img src="slides/slide_084.jpg" loading="lazy" alt="Slide 84"><span class="thumb-num">#084</span></div><div class="thumb-item" onclick="openLightbox(85)" title="Slide #085 [01:38:12]"><img src="slides/slide_085.jpg" loading="lazy" alt="Slide 85"><span class="thumb-num">#085</span></div><div class="thumb-item" onclick="openLightbox(86)" title="Slide #086 [01:38:24]"><img src="slides/slide_086.jpg" loading="lazy" alt="Slide 86"><span class="thumb-num">#086</span></div><div class="thumb-item" onclick="openLightbox(87)" title="Slide #087 [01:39:48]"><img src="slides/slide_087.jpg" loading="lazy" alt="Slide 87"><span class="thumb-num">#087</span></div><div class="thumb-item" onclick="openLightbox(88)" title="Slide #088 [01:58:28]"><img src="slides/slide_088.jpg" loading="lazy" alt="Slide 88"><span class="thumb-num">#088</span></div><div class="thumb-item" onclick="openLightbox(89)" title="Slide #089 [01:58:44]"><img src="slides/slide_089.jpg" loading="lazy" alt="Slide 89"><span class="thumb-num">#089</span></div><div class="thumb-item" onclick="openLightbox(90)" title="Slide #090 [02:21:08]"><img src="slides/slide_090.jpg" loading="lazy" alt="Slide 90"><span class="thumb-num">#090</span></div><div class="thumb-item" onclick="openLightbox(91)" title="Slide #091 [02:21:44]"><img src="slides/slide_091.jpg" loading="lazy" alt="Slide 91"><span class="thumb-num">#091</span></div><div class="thumb-item" onclick="openLightbox(92)" title="Slide #092 [02:21:56]"><img src="slides/slide_092.jpg" loading="lazy" alt="Slide 92"><span class="thumb-num">#092</span></div><div class="thumb-item" onclick="openLightbox(93)" title="Slide #093 [02:22:40]"><img src="slides/slide_093.jpg" loading="lazy" alt="Slide 93"><span class="thumb-num">#093</span></div><div class="thumb-item" onclick="openLightbox(94)" title="Slide #094 [02:22:48]"><img src="slides/slide_094.jpg" loading="lazy" alt="Slide 94"><span class="thumb-num">#094</span></div><div class="thumb-item" onclick="openLightbox(95)" title="Slide #095 [02:23:08]"><img src="slides/slide_095.jpg" loading="lazy" alt="Slide 95"><span class="thumb-num">#095</span></div><div class="thumb-item" onclick="openLightbox(96)" title="Slide #096 [02:23:44]"><img src="slides/slide_096.jpg" loading="lazy" alt="Slide 96"><span class="thumb-num">#096</span></div><div class="thumb-item" onclick="openLightbox(97)" title="Slide #097 [02:24:44]"><img src="slides/slide_097.jpg" loading="lazy" alt="Slide 97"><span class="thumb-num">#097</span></div><div class="thumb-item" onclick="openLightbox(98)" title="Slide #098 [02:26:00]"><img src="slides/slide_098.jpg" loading="lazy" alt="Slide 98"><span class="thumb-num">#098</span></div><div class="thumb-item" onclick="openLightbox(99)" title="Slide #099 [02:26:56]"><img src="slides/slide_099.jpg" loading="lazy" alt="Slide 99"><span class="thumb-num">#099</span></div><div class="thumb-item" onclick="openLightbox(100)" title="Slide #100 [02:32:00]"><img src="slides/slide_100.jpg" loading="lazy" alt="Slide 100"><span class="thumb-num">#100</span></div><div class="thumb-item" onclick="openLightbox(101)" title="Slide #101 [02:32:12]"><img src="slides/slide_101.jpg" loading="lazy" alt="Slide 101"><span class="thumb-num">#101</span></div><div class="thumb-item" onclick="openLightbox(102)" title="Slide #102 [02:32:20]"><img src="slides/slide_102.jpg" loading="lazy" alt="Slide 102"><span class="thumb-num">#102</span></div><div class="thumb-item" onclick="openLightbox(103)" title="Slide #103 [02:32:36]"><img src="slides/slide_103.jpg" loading="lazy" alt="Slide 103"><span class="thumb-num">#103</span></div><div class="thumb-item" onclick="openLightbox(104)" title="Slide #104 [02:33:04]"><img src="slides/slide_104.jpg" loading="lazy" alt="Slide 104"><span class="thumb-num">#104</span></div><div class="thumb-item" onclick="openLightbox(105)" title="Slide #105 [02:33:20]"><img src="slides/slide_105.jpg" loading="lazy" alt="Slide 105"><span class="thumb-num">#105</span></div><div class="thumb-item" onclick="openLightbox(106)" title="Slide #106 [02:33:44]"><img src="slides/slide_106.jpg" loading="lazy" alt="Slide 106"><span class="thumb-num">#106</span></div><div class="thumb-item" onclick="openLightbox(107)" title="Slide #107 [02:34:00]"><img src="slides/slide_107.jpg" loading="lazy" alt="Slide 107"><span class="thumb-num">#107</span></div><div class="thumb-item" onclick="openLightbox(108)" title="Slide #108 [02:34:08]"><img src="slides/slide_108.jpg" loading="lazy" alt="Slide 108"><span class="thumb-num">#108</span></div><div class="thumb-item" onclick="openLightbox(109)" title="Slide #109 [02:34:56]"><img src="slides/slide_109.jpg" loading="lazy" alt="Slide 109"><span class="thumb-num">#109</span></div><div class="thumb-item" onclick="openLightbox(110)" title="Slide #110 [02:35:16]"><img src="slides/slide_110.jpg" loading="lazy" alt="Slide 110"><span class="thumb-num">#110</span></div><div class="thumb-item" onclick="openLightbox(111)" title="Slide #111 [02:35:24]"><img src="slides/slide_111.jpg" loading="lazy" alt="Slide 111"><span class="thumb-num">#111</span></div><div class="thumb-item" onclick="openLightbox(112)" title="Slide #112 [02:35:32]"><img src="slides/slide_112.jpg" loading="lazy" alt="Slide 112"><span class="thumb-num">#112</span></div><div class="thumb-item" onclick="openLightbox(113)" title="Slide #113 [02:36:00]"><img src="slides/slide_113.jpg" loading="lazy" alt="Slide 113"><span class="thumb-num">#113</span></div><div class="thumb-item" onclick="openLightbox(114)" title="Slide #114 [02:40:08]"><img src="slides/slide_114.jpg" loading="lazy" alt="Slide 114"><span class="thumb-num">#114</span></div><div class="thumb-item" onclick="openLightbox(115)" title="Slide #115 [02:40:20]"><img src="slides/slide_115.jpg" loading="lazy" alt="Slide 115"><span class="thumb-num">#115</span></div><div class="thumb-item" onclick="openLightbox(116)" title="Slide #116 [02:40:36]"><img src="slides/slide_116.jpg" loading="lazy" alt="Slide 116"><span class="thumb-num">#116</span></div><div class="thumb-item" onclick="openLightbox(117)" title="Slide #117 [02:40:44]"><img src="slides/slide_117.jpg" loading="lazy" alt="Slide 117"><span class="thumb-num">#117</span></div><div class="thumb-item" onclick="openLightbox(118)" title="Slide #118 [02:41:24]"><img src="slides/slide_118.jpg" loading="lazy" alt="Slide 118"><span class="thumb-num">#118</span></div><div class="thumb-item" onclick="openLightbox(119)" title="Slide #119 [02:41:32]"><img src="slides/slide_119.jpg" loading="lazy" alt="Slide 119"><span class="thumb-num">#119</span></div><div class="thumb-item" onclick="openLightbox(120)" title="Slide #120 [02:42:12]"><img src="slides/slide_120.jpg" loading="lazy" alt="Slide 120"><span class="thumb-num">#120</span></div><div class="thumb-item" onclick="openLightbox(121)" title="Slide #121 [02:48:28]"><img src="slides/slide_121.jpg" loading="lazy" alt="Slide 121"><span class="thumb-num">#121</span></div><div class="thumb-item" onclick="openLightbox(122)" title="Slide #122 [02:50:28]"><img src="slides/slide_122.jpg" loading="lazy" alt="Slide 122"><span class="thumb-num">#122</span></div><div class="thumb-item" onclick="openLightbox(123)" title="Slide #123 [02:53:52]"><img src="slides/slide_123.jpg" loading="lazy" alt="Slide 123"><span class="thumb-num">#123</span></div><div class="thumb-item" onclick="openLightbox(124)" title="Slide #124 [02:54:12]"><img src="slides/slide_124.jpg" loading="lazy" alt="Slide 124"><span class="thumb-num">#124</span></div><div class="thumb-item" onclick="openLightbox(125)" title="Slide #125 [02:59:12]"><img src="slides/slide_125.jpg" loading="lazy" alt="Slide 125"><span class="thumb-num">#125</span></div><div class="thumb-item" onclick="openLightbox(126)" title="Slide #126 [02:59:56]"><img src="slides/slide_126.jpg" loading="lazy" alt="Slide 126"><span class="thumb-num">#126</span></div><div class="thumb-item" onclick="openLightbox(127)" title="Slide #127 [03:04:04]"><img src="slides/slide_127.jpg" loading="lazy" alt="Slide 127"><span class="thumb-num">#127</span></div><div class="thumb-item" onclick="openLightbox(128)" title="Slide #128 [03:04:44]"><img src="slides/slide_128.jpg" loading="lazy" alt="Slide 128"><span class="thumb-num">#128</span></div><div class="thumb-item" onclick="openLightbox(129)" title="Slide #129 [03:08:28]"><img src="slides/slide_129.jpg" loading="lazy" alt="Slide 129"><span class="thumb-num">#129</span></div><div class="thumb-item" onclick="openLightbox(130)" title="Slide #130 [03:10:52]"><img src="slides/slide_130.jpg" loading="lazy" alt="Slide 130"><span class="thumb-num">#130</span></div><div class="thumb-item" onclick="openLightbox(131)" title="Slide #131 [03:11:16]"><img src="slides/slide_131.jpg" loading="lazy" alt="Slide 131"><span class="thumb-num">#131</span></div><div class="thumb-item" onclick="openLightbox(132)" title="Slide #132 [03:21:20]"><img src="slides/slide_132.jpg" loading="lazy" alt="Slide 132"><span class="thumb-num">#132</span></div><div class="thumb-item" onclick="openLightbox(133)" title="Slide #133 [03:21:32]"><img src="slides/slide_133.jpg" loading="lazy" alt="Slide 133"><span class="thumb-num">#133</span></div><div class="thumb-item" onclick="openLightbox(134)" title="Slide #134 [03:21:52]"><img src="slides/slide_134.jpg" loading="lazy" alt="Slide 134"><span class="thumb-num">#134</span></div><div class="thumb-item" onclick="openLightbox(135)" title="Slide #135 [03:23:56]"><img src="slides/slide_135.jpg" loading="lazy" alt="Slide 135"><span class="thumb-num">#135</span></div><div class="thumb-item" onclick="openLightbox(136)" title="Slide #136 [03:24:52]"><img src="slides/slide_136.jpg" loading="lazy" alt="Slide 136"><span class="thumb-num">#136</span></div><div class="thumb-item" onclick="openLightbox(137)" title="Slide #137 [03:31:36]"><img src="slides/slide_137.jpg" loading="lazy" alt="Slide 137"><span class="thumb-num">#137</span></div><div class="thumb-item" onclick="openLightbox(138)" title="Slide #138 [03:32:04]"><img src="slides/slide_138.jpg" loading="lazy" alt="Slide 138"><span class="thumb-num">#138</span></div><div class="thumb-item" onclick="openLightbox(139)" title="Slide #139 [03:49:20]"><img src="slides/slide_139.jpg" loading="lazy" alt="Slide 139"><span class="thumb-num">#139</span></div><div class="thumb-item" onclick="openLightbox(140)" title="Slide #140 [03:50:00]"><img src="slides/slide_140.jpg" loading="lazy" alt="Slide 140"><span class="thumb-num">#140</span></div><div class="thumb-item" onclick="openLightbox(141)" title="Slide #141 [03:50:20]"><img src="slides/slide_141.jpg" loading="lazy" alt="Slide 141"><span class="thumb-num">#141</span></div><div class="thumb-item" onclick="openLightbox(142)" title="Slide #142 [03:50:40]"><img src="slides/slide_142.jpg" loading="lazy" alt="Slide 142"><span class="thumb-num">#142</span></div><div class="thumb-item" onclick="openLightbox(143)" title="Slide #143 [03:51:00]"><img src="slides/slide_143.jpg" loading="lazy" alt="Slide 143"><span class="thumb-num">#143</span></div><div class="thumb-item" onclick="openLightbox(144)" title="Slide #144 [03:51:08]"><img src="slides/slide_144.jpg" loading="lazy" alt="Slide 144"><span class="thumb-num">#144</span></div><div class="thumb-item" onclick="openLightbox(145)" title="Slide #145 [03:54:20]"><img src="slides/slide_145.jpg" loading="lazy" alt="Slide 145"><span class="thumb-num">#145</span></div><div class="thumb-item" onclick="openLightbox(146)" title="Slide #146 [03:54:28]"><img src="slides/slide_146.jpg" loading="lazy" alt="Slide 146"><span class="thumb-num">#146</span></div><div class="thumb-item" onclick="openLightbox(147)" title="Slide #147 [03:55:16]"><img src="slides/slide_147.jpg" loading="lazy" alt="Slide 147"><span class="thumb-num">#147</span></div><div class="thumb-item" onclick="openLightbox(148)" title="Slide #148 [03:55:56]"><img src="slides/slide_148.jpg" loading="lazy" alt="Slide 148"><span class="thumb-num">#148</span></div><div class="thumb-item" onclick="openLightbox(149)" title="Slide #149 [03:57:08]"><img src="slides/slide_149.jpg" loading="lazy" alt="Slide 149"><span class="thumb-num">#149</span></div><div class="thumb-item" onclick="openLightbox(150)" title="Slide #150 [03:57:16]"><img src="slides/slide_150.jpg" loading="lazy" alt="Slide 150"><span class="thumb-num">#150</span></div><div class="thumb-item" onclick="openLightbox(151)" title="Slide #151 [03:58:40]"><img src="slides/slide_151.jpg" loading="lazy" alt="Slide 151"><span class="thumb-num">#151</span></div><div class="thumb-item" onclick="openLightbox(152)" title="Slide #152 [04:01:12]"><img src="slides/slide_152.jpg" loading="lazy" alt="Slide 152"><span class="thumb-num">#152</span></div><div class="thumb-item" onclick="openLightbox(153)" title="Slide #153 [04:04:40]"><img src="slides/slide_153.jpg" loading="lazy" alt="Slide 153"><span class="thumb-num">#153</span></div><div class="thumb-item" onclick="openLightbox(154)" title="Slide #154 [04:05:00]"><img src="slides/slide_154.jpg" loading="lazy" alt="Slide 154"><span class="thumb-num">#154</span></div><div class="thumb-item" onclick="openLightbox(155)" title="Slide #155 [04:05:28]"><img src="slides/slide_155.jpg" loading="lazy" alt="Slide 155"><span class="thumb-num">#155</span></div><div class="thumb-item" onclick="openLightbox(156)" title="Slide #156 [04:06:52]"><img src="slides/slide_156.jpg" loading="lazy" alt="Slide 156"><span class="thumb-num">#156</span></div><div class="thumb-item" onclick="openLightbox(157)" title="Slide #157 [04:07:28]"><img src="slides/slide_157.jpg" loading="lazy" alt="Slide 157"><span class="thumb-num">#157</span></div><div class="thumb-item" onclick="openLightbox(158)" title="Slide #158 [04:08:32]"><img src="slides/slide_158.jpg" loading="lazy" alt="Slide 158"><span class="thumb-num">#158</span></div><div class="thumb-item" onclick="openLightbox(159)" title="Slide #159 [04:08:44]"><img src="slides/slide_159.jpg" loading="lazy" alt="Slide 159"><span class="thumb-num">#159</span></div><div class="thumb-item" onclick="openLightbox(160)" title="Slide #160 [04:09:12]"><img src="slides/slide_160.jpg" loading="lazy" alt="Slide 160"><span class="thumb-num">#160</span></div><div class="thumb-item" onclick="openLightbox(161)" title="Slide #161 [04:09:40]"><img src="slides/slide_161.jpg" loading="lazy" alt="Slide 161"><span class="thumb-num">#161</span></div><div class="thumb-item" onclick="openLightbox(162)" title="Slide #162 [04:09:52]"><img src="slides/slide_162.jpg" loading="lazy" alt="Slide 162"><span class="thumb-num">#162</span></div><div class="thumb-item" onclick="openLightbox(163)" title="Slide #163 [04:10:12]"><img src="slides/slide_163.jpg" loading="lazy" alt="Slide 163"><span class="thumb-num">#163</span></div><div class="thumb-item" onclick="openLightbox(164)" title="Slide #164 [04:11:24]"><img src="slides/slide_164.jpg" loading="lazy" alt="Slide 164"><span class="thumb-num">#164</span></div><div class="thumb-item" onclick="openLightbox(165)" title="Slide #165 [04:12:12]"><img src="slides/slide_165.jpg" loading="lazy" alt="Slide 165"><span class="thumb-num">#165</span></div><div class="thumb-item" onclick="openLightbox(166)" title="Slide #166 [04:12:24]"><img src="slides/slide_166.jpg" loading="lazy" alt="Slide 166"><span class="thumb-num">#166</span></div><div class="thumb-item" onclick="openLightbox(167)" title="Slide #167 [04:13:20]"><img src="slides/slide_167.jpg" loading="lazy" alt="Slide 167"><span class="thumb-num">#167</span></div><div class="thumb-item" onclick="openLightbox(168)" title="Slide #168 [04:14:00]"><img src="slides/slide_168.jpg" loading="lazy" alt="Slide 168"><span class="thumb-num">#168</span></div><div class="thumb-item" onclick="openLightbox(169)" title="Slide #169 [04:14:08]"><img src="slides/slide_169.jpg" loading="lazy" alt="Slide 169"><span class="thumb-num">#169</span></div><div class="thumb-item" onclick="openLightbox(170)" title="Slide #170 [04:14:48]"><img src="slides/slide_170.jpg" loading="lazy" alt="Slide 170"><span class="thumb-num">#170</span></div><div class="thumb-item" onclick="openLightbox(171)" title="Slide #171 [04:15:12]"><img src="slides/slide_171.jpg" loading="lazy" alt="Slide 171"><span class="thumb-num">#171</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox(event)">
+  <div class="lightbox-controls" onclick="event.stopPropagation()">
+    <button class="lb-btn" onclick="prevSlide()" title="上一張">◀</button>
+    <span id="lbCounter" class="lb-counter">Slide 1 / 171</span>
+    <button class="lb-btn" onclick="nextSlide()" title="下一張">▶</button>
+    <button class="lb-btn" onclick="zoomIn()" title="放大 (+)">🔍+</button>
+    <button class="lb-btn" onclick="zoomOut()" title="縮小 (-)">🔍-</button>
+    <button class="lb-btn" onclick="resetZoom()" title="1:1">1:1</button>
+    <button class="lb-btn close-btn" onclick="closeLightboxDirect()" title="關閉">✕ 關閉</button>
+  </div>
+  <div class="lightbox-img-wrapper" id="lbImgWrapper">
+    <img id="lightboxImg" src="" alt="Slide HD" class="lightbox-img" onclick="event.stopPropagation()">
+  </div>
+  <div id="lbCaption" class="lightbox-caption" onclick="event.stopPropagation()"></div>
+</div>
+
+
+<script>
+let currentSlideIdx = 0;
+let zoomLevel = 1;
+const allSlides = [{"idx": 1, "img": "slides/slide_001.jpg", "time": "00:00:00 -> 00:00:16", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 2, "img": "slides/slide_002.jpg", "time": "00:00:16 -> 00:00:36", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 3, "img": "slides/slide_003.jpg", "time": "00:00:36 -> 00:00:56", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 4, "img": "slides/slide_004.jpg", "time": "00:00:56 -> 00:01:12", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 5, "img": "slides/slide_005.jpg", "time": "00:01:12 -> 00:03:20", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 6, "img": "slides/slide_006.jpg", "time": "00:03:20 -> 00:04:40", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 7, "img": "slides/slide_007.jpg", "time": "00:04:40 -> 00:06:20", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 8, "img": "slides/slide_008.jpg", "time": "00:06:20 -> 00:06:56", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 9, "img": "slides/slide_009.jpg", "time": "00:06:56 -> 00:07:28", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 10, "img": "slides/slide_010.jpg", "time": "00:07:28 -> 00:08:16", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 11, "img": "slides/slide_011.jpg", "time": "00:08:16 -> 00:09:32", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 12, "img": "slides/slide_012.jpg", "time": "00:09:32 -> 00:11:52", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 13, "img": "slides/slide_013.jpg", "time": "00:11:52 -> 00:14:20", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 14, "img": "slides/slide_014.jpg", "time": "00:14:20 -> 00:16:08", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 15, "img": "slides/slide_015.jpg", "time": "00:16:08 -> 00:17:16", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 16, "img": "slides/slide_016.jpg", "time": "00:17:16 -> 00:17:48", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 17, "img": "slides/slide_017.jpg", "time": "00:17:48 -> 00:18:28", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 18, "img": "slides/slide_018.jpg", "time": "00:18:28 -> 00:25:28", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 19, "img": "slides/slide_019.jpg", "time": "00:25:28 -> 00:26:32", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 20, "img": "slides/slide_020.jpg", "time": "00:26:32 -> 00:28:48", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 21, "img": "slides/slide_021.jpg", "time": "00:28:48 -> 00:29:16", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 22, "img": "slides/slide_022.jpg", "time": "00:29:16 -> 00:29:40", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 23, "img": "slides/slide_023.jpg", "time": "00:29:40 -> 00:29:52", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 24, "img": "slides/slide_024.jpg", "time": "00:29:52 -> 00:31:44", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 25, "img": "slides/slide_025.jpg", "time": "00:31:44 -> 00:32:52", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 26, "img": "slides/slide_026.jpg", "time": "00:32:52 -> 00:33:16", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 27, "img": "slides/slide_027.jpg", "time": "00:33:16 -> 00:38:28", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 28, "img": "slides/slide_028.jpg", "time": "00:38:28 -> 00:42:20", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 29, "img": "slides/slide_029.jpg", "time": "00:42:20 -> 00:45:48", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 30, "img": "slides/slide_030.jpg", "time": "00:45:48 -> 00:47:16", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 31, "img": "slides/slide_031.jpg", "time": "00:47:16 -> 00:47:44", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 32, "img": "slides/slide_032.jpg", "time": "00:47:44 -> 00:51:08", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 33, "img": "slides/slide_033.jpg", "time": "00:51:08 -> 00:51:56", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 34, "img": "slides/slide_034.jpg", "time": "00:51:56 -> 00:52:40", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 35, "img": "slides/slide_035.jpg", "time": "00:52:40 -> 00:53:40", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 36, "img": "slides/slide_036.jpg", "time": "00:53:40 -> 00:54:28", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 37, "img": "slides/slide_037.jpg", "time": "00:54:28 -> 00:55:16", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 38, "img": "slides/slide_038.jpg", "time": "00:55:16 -> 00:56:48", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 39, "img": "slides/slide_039.jpg", "time": "00:56:48 -> 00:57:56", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 40, "img": "slides/slide_040.jpg", "time": "00:57:56 -> 00:59:44", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 41, "img": "slides/slide_041.jpg", "time": "00:59:44 -> 01:01:16", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 42, "img": "slides/slide_042.jpg", "time": "01:01:16 -> 01:03:00", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 43, "img": "slides/slide_043.jpg", "time": "01:03:00 -> 01:03:08", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 44, "img": "slides/slide_044.jpg", "time": "01:03:08 -> 01:03:36", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 45, "img": "slides/slide_045.jpg", "time": "01:03:36 -> 01:03:48", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 46, "img": "slides/slide_046.jpg", "time": "01:03:48 -> 01:05:24", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 47, "img": "slides/slide_047.jpg", "time": "01:05:24 -> 01:05:40", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 48, "img": "slides/slide_048.jpg", "time": "01:05:40 -> 01:06:08", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 49, "img": "slides/slide_049.jpg", "time": "01:06:08 -> 01:06:52", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 50, "img": "slides/slide_050.jpg", "time": "01:06:52 -> 01:07:04", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 51, "img": "slides/slide_051.jpg", "time": "01:07:04 -> 01:07:48", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 52, "img": "slides/slide_052.jpg", "time": "01:07:48 -> 01:08:00", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 53, "img": "slides/slide_053.jpg", "time": "01:08:00 -> 01:08:56", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 54, "img": "slides/slide_054.jpg", "time": "01:08:56 -> 01:09:16", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 55, "img": "slides/slide_055.jpg", "time": "01:09:16 -> 01:09:36", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 56, "img": "slides/slide_056.jpg", "time": "01:09:36 -> 01:10:44", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 57, "img": "slides/slide_057.jpg", "time": "01:10:44 -> 01:11:04", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 58, "img": "slides/slide_058.jpg", "time": "01:11:04 -> 01:11:16", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 59, "img": "slides/slide_059.jpg", "time": "01:11:16 -> 01:11:28", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 60, "img": "slides/slide_060.jpg", "time": "01:11:28 -> 01:11:52", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 61, "img": "slides/slide_061.jpg", "time": "01:11:52 -> 01:15:40", "tag": "曾明宗醫師 · 疼痛面面觀"}, {"idx": 62, "img": "slides/slide_062.jpg", "time": "01:15:40 -> 01:17:24", "tag": "文獻案例 · 神經精神分析"}, {"idx": 63, "img": "slides/slide_063.jpg", "time": "01:17:24 -> 01:17:36", "tag": "文獻案例 · 神經精神分析"}, {"idx": 64, "img": "slides/slide_064.jpg", "time": "01:17:36 -> 01:20:00", "tag": "文獻案例 · 神經精神分析"}, {"idx": 65, "img": "slides/slide_065.jpg", "time": "01:20:00 -> 01:21:12", "tag": "文獻案例 · 神經精神分析"}, {"idx": 66, "img": "slides/slide_066.jpg", "time": "01:21:12 -> 01:21:56", "tag": "文獻案例 · 神經精神分析"}, {"idx": 67, "img": "slides/slide_067.jpg", "time": "01:21:56 -> 01:22:16", "tag": "文獻案例 · 神經精神分析"}, {"idx": 68, "img": "slides/slide_068.jpg", "time": "01:22:16 -> 01:24:08", "tag": "文獻案例 · 神經精神分析"}, {"idx": 69, "img": "slides/slide_069.jpg", "time": "01:24:08 -> 01:26:44", "tag": "文獻案例 · 神經精神分析"}, {"idx": 70, "img": "slides/slide_070.jpg", "time": "01:26:44 -> 01:27:40", "tag": "文獻案例 · 神經精神分析"}, {"idx": 71, "img": "slides/slide_071.jpg", "time": "01:27:40 -> 01:29:28", "tag": "文獻案例 · 神經精神分析"}, {"idx": 72, "img": "slides/slide_072.jpg", "time": "01:29:28 -> 01:30:28", "tag": "文獻案例 · 神經精神分析"}, {"idx": 73, "img": "slides/slide_073.jpg", "time": "01:30:28 -> 01:30:40", "tag": "文獻案例 · 神經精神分析"}, {"idx": 74, "img": "slides/slide_074.jpg", "time": "01:30:40 -> 01:31:56", "tag": "文獻案例 · 神經精神分析"}, {"idx": 75, "img": "slides/slide_075.jpg", "time": "01:31:56 -> 01:32:44", "tag": "文獻案例 · 神經精神分析"}, {"idx": 76, "img": "slides/slide_076.jpg", "time": "01:32:44 -> 01:33:04", "tag": "文獻案例 · 神經精神分析"}, {"idx": 77, "img": "slides/slide_077.jpg", "time": "01:33:04 -> 01:33:36", "tag": "文獻案例 · 神經精神分析"}, {"idx": 78, "img": "slides/slide_078.jpg", "time": "01:33:36 -> 01:33:48", "tag": "文獻案例 · 神經精神分析"}, {"idx": 79, "img": "slides/slide_079.jpg", "time": "01:33:48 -> 01:34:44", "tag": "文獻案例 · 神經精神分析"}, {"idx": 80, "img": "slides/slide_080.jpg", "time": "01:34:44 -> 01:36:48", "tag": "文獻案例 · 神經精神分析"}, {"idx": 81, "img": "slides/slide_081.jpg", "time": "01:36:48 -> 01:37:00", "tag": "文獻案例 · 神經精神分析"}, {"idx": 82, "img": "slides/slide_082.jpg", "time": "01:37:00 -> 01:37:24", "tag": "文獻案例 · 神經精神分析"}, {"idx": 83, "img": "slides/slide_083.jpg", "time": "01:37:24 -> 01:37:48", "tag": "文獻案例 · 神經精神分析"}, {"idx": 84, "img": "slides/slide_084.jpg", "time": "01:37:48 -> 01:38:12", "tag": "文獻案例 · 神經精神分析"}, {"idx": 85, "img": "slides/slide_085.jpg", "time": "01:38:12 -> 01:38:24", "tag": "文獻案例 · 神經精神分析"}, {"idx": 86, "img": "slides/slide_086.jpg", "time": "01:38:24 -> 01:39:48", "tag": "文獻案例 · 神經精神分析"}, {"idx": 87, "img": "slides/slide_087.jpg", "time": "01:39:48 -> 01:58:28", "tag": "文獻案例 · 神經精神分析"}, {"idx": 88, "img": "slides/slide_088.jpg", "time": "01:58:28 -> 01:58:44", "tag": "文獻案例 · 神經精神分析"}, {"idx": 89, "img": "slides/slide_089.jpg", "time": "01:58:44 -> 02:21:08", "tag": "文獻案例 · 神經精神分析"}, {"idx": 90, "img": "slides/slide_090.jpg", "time": "02:21:08 -> 02:21:44", "tag": "文獻案例 · 神經精神分析"}, {"idx": 91, "img": "slides/slide_091.jpg", "time": "02:21:44 -> 02:21:56", "tag": "文獻案例 · 神經精神分析"}, {"idx": 92, "img": "slides/slide_092.jpg", "time": "02:21:56 -> 02:22:40", "tag": "文獻案例 · 神經精神分析"}, {"idx": 93, "img": "slides/slide_093.jpg", "time": "02:22:40 -> 02:22:48", "tag": "文獻案例 · 神經精神分析"}, {"idx": 94, "img": "slides/slide_094.jpg", "time": "02:22:48 -> 02:23:08", "tag": "文獻案例 · 神經精神分析"}, {"idx": 95, "img": "slides/slide_095.jpg", "time": "02:23:08 -> 02:23:44", "tag": "文獻案例 · 神經精神分析"}, {"idx": 96, "img": "slides/slide_096.jpg", "time": "02:23:44 -> 02:24:44", "tag": "文獻案例 · 神經精神分析"}, {"idx": 97, "img": "slides/slide_097.jpg", "time": "02:24:44 -> 02:26:00", "tag": "文獻案例 · 神經精神分析"}, {"idx": 98, "img": "slides/slide_098.jpg", "time": "02:26:00 -> 02:26:56", "tag": "文獻案例 · 神經精神分析"}, {"idx": 99, "img": "slides/slide_099.jpg", "time": "02:26:56 -> 02:32:00", "tag": "文獻案例 · 神經精神分析"}, {"idx": 100, "img": "slides/slide_100.jpg", "time": "02:32:00 -> 02:32:12", "tag": "文獻案例 · 神經精神分析"}, {"idx": 101, "img": "slides/slide_101.jpg", "time": "02:32:12 -> 02:32:20", "tag": "文獻案例 · 神經精神分析"}, {"idx": 102, "img": "slides/slide_102.jpg", "time": "02:32:20 -> 02:32:36", "tag": "文獻案例 · 神經精神分析"}, {"idx": 103, "img": "slides/slide_103.jpg", "time": "02:32:36 -> 02:33:04", "tag": "文獻案例 · 神經精神分析"}, {"idx": 104, "img": "slides/slide_104.jpg", "time": "02:33:04 -> 02:33:20", "tag": "文獻案例 · 神經精神分析"}, {"idx": 105, "img": "slides/slide_105.jpg", "time": "02:33:20 -> 02:33:44", "tag": "文獻案例 · 神經精神分析"}, {"idx": 106, "img": "slides/slide_106.jpg", "time": "02:33:44 -> 02:34:00", "tag": "文獻案例 · 神經精神分析"}, {"idx": 107, "img": "slides/slide_107.jpg", "time": "02:34:00 -> 02:34:08", "tag": "文獻案例 · 神經精神分析"}, {"idx": 108, "img": "slides/slide_108.jpg", "time": "02:34:08 -> 02:34:56", "tag": "文獻案例 · 神經精神分析"}, {"idx": 109, "img": "slides/slide_109.jpg", "time": "02:34:56 -> 02:35:16", "tag": "文獻案例 · 神經精神分析"}, {"idx": 110, "img": "slides/slide_110.jpg", "time": "02:35:16 -> 02:35:24", "tag": "文獻案例 · 神經精神分析"}, {"idx": 111, "img": "slides/slide_111.jpg", "time": "02:35:24 -> 02:35:32", "tag": "文獻案例 · 神經精神分析"}, {"idx": 112, "img": "slides/slide_112.jpg", "time": "02:35:32 -> 02:36:00", "tag": "文獻案例 · 神經精神分析"}, {"idx": 113, "img": "slides/slide_113.jpg", "time": "02:36:00 -> 02:40:08", "tag": "文獻案例 · 神經精神分析"}, {"idx": 114, "img": "slides/slide_114.jpg", "time": "02:40:08 -> 02:40:20", "tag": "文獻案例 · 神經精神分析"}, {"idx": 115, "img": "slides/slide_115.jpg", "time": "02:40:20 -> 02:40:36", "tag": "文獻案例 · 神經精神分析"}, {"idx": 116, "img": "slides/slide_116.jpg", "time": "02:40:36 -> 02:40:44", "tag": "文獻案例 · 神經精神分析"}, {"idx": 117, "img": "slides/slide_117.jpg", "time": "02:40:44 -> 02:41:24", "tag": "文獻案例 · 神經精神分析"}, {"idx": 118, "img": "slides/slide_118.jpg", "time": "02:41:24 -> 02:41:32", "tag": "文獻案例 · 神經精神分析"}, {"idx": 119, "img": "slides/slide_119.jpg", "time": "02:41:32 -> 02:42:12", "tag": "文獻案例 · 神經精神分析"}, {"idx": 120, "img": "slides/slide_120.jpg", "time": "02:42:12 -> 02:48:28", "tag": "文獻案例 · 神經精神分析"}, {"idx": 121, "img": "slides/slide_121.jpg", "time": "02:48:28 -> 02:50:28", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 122, "img": "slides/slide_122.jpg", "time": "02:50:28 -> 02:53:52", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 123, "img": "slides/slide_123.jpg", "time": "02:53:52 -> 02:54:12", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 124, "img": "slides/slide_124.jpg", "time": "02:54:12 -> 02:59:12", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 125, "img": "slides/slide_125.jpg", "time": "02:59:12 -> 02:59:56", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 126, "img": "slides/slide_126.jpg", "time": "02:59:56 -> 03:04:04", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 127, "img": "slides/slide_127.jpg", "time": "03:04:04 -> 03:04:44", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 128, "img": "slides/slide_128.jpg", "time": "03:04:44 -> 03:08:28", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 129, "img": "slides/slide_129.jpg", "time": "03:08:28 -> 03:10:52", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 130, "img": "slides/slide_130.jpg", "time": "03:10:52 -> 03:11:16", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 131, "img": "slides/slide_131.jpg", "time": "03:11:16 -> 03:21:20", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 132, "img": "slides/slide_132.jpg", "time": "03:21:20 -> 03:21:32", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 133, "img": "slides/slide_133.jpg", "time": "03:21:32 -> 03:21:52", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 134, "img": "slides/slide_134.jpg", "time": "03:21:52 -> 03:23:56", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 135, "img": "slides/slide_135.jpg", "time": "03:23:56 -> 03:24:52", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 136, "img": "slides/slide_136.jpg", "time": "03:24:52 -> 03:31:36", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 137, "img": "slides/slide_137.jpg", "time": "03:31:36 -> 03:32:04", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 138, "img": "slides/slide_138.jpg", "time": "03:32:04 -> 03:49:20", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 139, "img": "slides/slide_139.jpg", "time": "03:49:20 -> 03:50:00", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 140, "img": "slides/slide_140.jpg", "time": "03:50:00 -> 03:50:20", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 141, "img": "slides/slide_141.jpg", "time": "03:50:20 -> 03:50:40", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 142, "img": "slides/slide_142.jpg", "time": "03:50:40 -> 03:51:00", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 143, "img": "slides/slide_143.jpg", "time": "03:51:00 -> 03:51:08", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 144, "img": "slides/slide_144.jpg", "time": "03:51:08 -> 03:54:20", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 145, "img": "slides/slide_145.jpg", "time": "03:54:20 -> 03:54:28", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 146, "img": "slides/slide_146.jpg", "time": "03:54:28 -> 03:55:16", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 147, "img": "slides/slide_147.jpg", "time": "03:55:16 -> 03:55:56", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 148, "img": "slides/slide_148.jpg", "time": "03:55:56 -> 03:57:08", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 149, "img": "slides/slide_149.jpg", "time": "03:57:08 -> 03:57:16", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 150, "img": "slides/slide_150.jpg", "time": "03:57:16 -> 03:58:40", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 151, "img": "slides/slide_151.jpg", "time": "03:58:40 -> 04:01:12", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 152, "img": "slides/slide_152.jpg", "time": "04:01:12 -> 04:04:40", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 153, "img": "slides/slide_153.jpg", "time": "04:04:40 -> 04:05:00", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 154, "img": "slides/slide_154.jpg", "time": "04:05:00 -> 04:05:28", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 155, "img": "slides/slide_155.jpg", "time": "04:05:28 -> 04:06:52", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 156, "img": "slides/slide_156.jpg", "time": "04:06:52 -> 04:07:28", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 157, "img": "slides/slide_157.jpg", "time": "04:07:28 -> 04:08:32", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 158, "img": "slides/slide_158.jpg", "time": "04:08:32 -> 04:08:44", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 159, "img": "slides/slide_159.jpg", "time": "04:08:44 -> 04:09:12", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 160, "img": "slides/slide_160.jpg", "time": "04:09:12 -> 04:09:40", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 161, "img": "slides/slide_161.jpg", "time": "04:09:40 -> 04:09:52", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 162, "img": "slides/slide_162.jpg", "time": "04:09:52 -> 04:10:12", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 163, "img": "slides/slide_163.jpg", "time": "04:10:12 -> 04:11:24", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 164, "img": "slides/slide_164.jpg", "time": "04:11:24 -> 04:12:12", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 165, "img": "slides/slide_165.jpg", "time": "04:12:12 -> 04:12:24", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 166, "img": "slides/slide_166.jpg", "time": "04:12:24 -> 04:13:20", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 167, "img": "slides/slide_167.jpg", "time": "04:13:20 -> 04:14:00", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 168, "img": "slides/slide_168.jpg", "time": "04:14:00 -> 04:14:08", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 169, "img": "slides/slide_169.jpg", "time": "04:14:08 -> 04:14:48", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 170, "img": "slides/slide_170.jpg", "time": "04:14:48 -> 04:15:12", "tag": "陳建佑醫師 · Transformation in O"}, {"idx": 171, "img": "slides/slide_171.jpg", "time": "04:15:12 -> 04:15:20", "tag": "陳建佑醫師 · Transformation in O"}];
+
+function openLightbox(idx) {
+  currentSlideIdx = idx - 1;
+  updateLightbox();
+  document.getElementById('lightboxModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function updateLightbox() {
+  const s = allSlides[currentSlideIdx];
+  const img = document.getElementById('lightboxImg');
+  img.src = s.img;
+  document.getElementById('lbCounter').innerText = `Slide ${s.idx} / ${allSlides.length} [${s.time}]`;
+  document.getElementById('lbCaption').innerHTML = `<strong>Slide #${s.idx}</strong> · ${s.tag} (${s.time}) <span style='opacity:0.7; font-size:0.85em; margin-left:12px;'>提示：可用鍵盤 ← / → 切換，+ / - 縮放，ESC 關閉</span>`;
+  resetZoom();
+}
+
+function closeLightbox(e) {
+  if (e.target.id === 'lightboxModal' || e.target.id === 'lbImgWrapper') {
+    closeLightboxDirect();
+  }
+}
+
+function closeLightboxDirect() {
+  document.getElementById('lightboxModal').classList.remove('active');
+  document.body.style.overflow = 'auto';
+  resetZoom();
+}
+
+function prevSlide() {
+  if (currentSlideIdx > 0) {
+    currentSlideIdx--;
+    updateLightbox();
+  }
+}
+
+function nextSlide() {
+  if (currentSlideIdx < allSlides.length - 1) {
+    currentSlideIdx++;
+    updateLightbox();
+  }
+}
+
+function zoomIn() {
+  zoomLevel = Math.min(zoomLevel + 0.3, 3.5);
+  applyZoom();
+}
+
+function zoomOut() {
+  zoomLevel = Math.max(zoomLevel - 0.3, 0.5);
+  applyZoom();
+}
+
+function resetZoom() {
+  zoomLevel = 1;
+  applyZoom();
+}
+
+function applyZoom() {
+  const img = document.getElementById('lightboxImg');
+  img.style.transform = `scale(${zoomLevel})`;
+}
+
+document.addEventListener('keydown', (e) => {
+  const modal = document.getElementById('lightboxModal');
+  if (modal && modal.classList.contains('active')) {
+    if (e.key === 'Escape') closeLightboxDirect();
+    else if (e.key === 'ArrowLeft') prevSlide();
+    else if (e.key === 'ArrowRight') nextSlide();
+    else if (e.key === '+' || e.key === '=') zoomIn();
+    else if (e.key === '-') zoomOut();
+  }
+});
+
+function filterTranscript() {
+  const query = document.getElementById('searchBox').value.toLowerCase().trim();
+  const cards = document.querySelectorAll('.slide-card');
+  let matchCount = 0;
+  cards.forEach(card => {
+    const text = card.innerText.toLowerCase();
+    if (!query || text.includes(query)) {
+      card.style.display = '';
+      matchCount++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  const countEl = document.getElementById('searchCount');
+  if (countEl) {
+    countEl.innerText = query ? `找到 ${matchCount} 個相關投影片` : '';
+  }
+}
+</script>
+
+
+<footer>
+  <div>© 2026 BrainTaiwan Pain · 精神分析與身心醫學研習全紀錄 · <a href="https://md.braintaiwan.com">md.braintaiwan.com</a> · <a href="https://braintaiwan.com">braintaiwan.com</a></div>
+</footer>
+</body>
+</html>
